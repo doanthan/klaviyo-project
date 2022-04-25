@@ -3,8 +3,8 @@ const ResultsCard = ({ results }) => {
   return (
     <Card>
       <h5>Results</h5>
-      {results?.map((line) => {
-        <p>{line.email} added!</p>;
+      {results.map((line) => {
+        return <p> {line.email} added! ✅ </p>;
       })}
     </Card>
   );

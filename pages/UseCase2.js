@@ -11,7 +11,7 @@ const UseCase2 = ({ initialData }) => {
   const { control, handleSubmit } = useForm();
 
   const [grid, setGrid] = useState(blankSheet);
-  const [results, setResults] = useState();
+  const [results, setResults] = useState([]);
 
   const onSubmit = async (formData) => {
     formData.emailList = grid;
@@ -20,17 +20,27 @@ const UseCase2 = ({ initialData }) => {
       formData
     );
     setResults(data);
-
-    //setGrid(blankSheet);
+    setGrid(blankSheet);
   };
 
   return (
     <div className='row justify-content-md-center'>
       <div className='col-6'>
         <div className='text-center mt-40'>
-          <h1>Use Case 2</h1>
+          <h1>Doan's Klaviyo Demo</h1>
 
           <hr className='mt-40' />
+          <h6>Use Case 2</h6>
+          <p>
+            Customer has multiple local marketeers who wish to add profiles to
+            their local list, but don't need access to the Klaviyo platform.
+            Create an easy to use function for these marketeers to quickly add
+            profiles and their details into Klaviyo
+          </p>
+          <i>
+            Klaviyo API's used in this interation: Get Lists, Add Profiles to
+            List
+          </i>
           <Row className='justify-content-md-center'>
             <Form onSubmit={handleSubmit(onSubmit)}>
               <Col sm='12'>
@@ -42,6 +52,7 @@ const UseCase2 = ({ initialData }) => {
                       options={initialData}
                       name='list'
                       control={control}
+                      rules={{ required: true }}
                       render={({ field: { onChange, onBlur, value, ref } }) => (
                         <Select
                           options={initialData}
@@ -85,12 +96,11 @@ const UseCase2 = ({ initialData }) => {
               <ResultsCard results={results} />
             </Col>
           </Row>
-
-          <div className='text-center pt-3'>
+          <div className='text-center py-3'>
             <Link href='/'>
               <a>
                 <Button type='submit' color='secondary' className='btn-lg '>
-                  Return Home
+                  Home
                 </Button>
               </a>
             </Link>
@@ -105,8 +115,7 @@ export default UseCase2;
 
 export const getServerSideProps = async () => {
   const url = `https://a.klaviyo.com/api/v2/lists?api_key=${process.env.KLAVIYO_SECRET_KEY}`;
-  const listArray = await axios.get(url);
-  const { data } = listArray;
+  const { data } = await axios.get(url);
   const initialData = data;
   return {
     props: { initialData },

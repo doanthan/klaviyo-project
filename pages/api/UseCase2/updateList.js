@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { validateEmail } from '../../helper/functions';
 
 export default async function updateList(req, res) {
   const url = `https://a.klaviyo.com/api/v2/list/${req.body.list.list_id}/members?api_key=${process.env.KLAVIYO_SECRET_KEY}`;
@@ -18,10 +19,3 @@ export default async function updateList(req, res) {
 
   return res.status(200).send(data);
 }
-
-// Test to see if email is valid before sending to Klaviyo
-const validateEmail = (email) => {
-  const re =
-    /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  return re.test(String(email).toLowerCase());
-};

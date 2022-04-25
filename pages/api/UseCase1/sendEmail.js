@@ -2,7 +2,11 @@ import axios from 'axios';
 
 export default async function sendEmail(req, res) {
   const email = req.body.email;
-  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=-33.9236117&lon=151.0189137&appid=15de4c48d32c487be2f8f233f7399175&units=metric`;
+  console.log(req.body);
+  console.log(process.env.OPEN_WEATHER_API_KEY);
+  const weatherUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${req.body.lat.toString()}&lon=${req.body.lon.toString()}&appid=${
+    process.env.OPEN_WEATHER_API_KEY
+  }&units=metric`;
   const { data } = await axios.get(weatherUrl);
   console.log(data);
   const body = {
@@ -21,6 +25,6 @@ export default async function sendEmail(req, res) {
   };
   const klaviyoUrl = 'https://a.klaviyo.com/api/track';
   const response = await axios.post(klaviyoUrl, body);
-
-  return res.status(200).send('response.statusText');
+  console.log(response.data);
+  return res.status(200).send('Success');
 }

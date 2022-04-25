@@ -9,20 +9,19 @@ import GetProfileDetails from '../components/UseCase1/GetProfileDetails';
 const UseCase1 = () => {
   const { register, handleSubmit } = useForm();
   const { handleSubmit: handleSubmit2, register: register2 } = useForm();
-  const { handleSubmit: handleSubmit3, register: register3 } = useForm();
 
   const [profile, setProfile] = useState();
 
   const addPerson = async (formData) => {
     const { data } = await axios.post(
-      `http://localhost:3000/api/identifyProfile`,
+      `http://localhost:3000/api/UseCase1/identifyProfile`,
       formData
     );
   };
 
   const getProfile = async (formData) => {
     const { data } = await axios.post(
-      `http://localhost:3000/api/getProfile`,
+      `http://localhost:3000/api/UseCase1/getProfile`,
       formData
     );
     setProfile(data);
@@ -30,24 +29,45 @@ const UseCase1 = () => {
 
   const updateAddress = async () => {
     const { data } = await axios.post(
-      `http://localhost:3000/api/updateAddress`,
+      `http://localhost:3000/api/UseCase1/updateAddress`,
       { email: profile.$email, address: profile.$address1 }
     );
   };
 
   const sendEmail = async () => {
-    const { data } = await axios.post(`http://localhost:3000/api/sendEmail`, {
-      email: profile.$email,
-      address: profile.$address1,
-    });
+    const { data } = await axios.post(
+      `http://localhost:3000/api/UseCase1/sendEmail`,
+      {
+        email: profile.$email,
+        address: profile.$address1,
+        lat: profile.$latitude,
+        lon: profile.$longitude,
+      }
+    );
   };
 
   return (
     <Container className='px-4'>
       <div className='text-center mt-40'>
-        <h1>Use Case 1</h1>
-        <h5 className='text-secondary'>Description</h5>
+        <h1>Doan's Klaviyo Demo</h1>
         <hr className='mt-40' />
+        <h5 className='text-secondary'>Use Case 1</h5>
+        <p>
+          Cleaning up data and sending interesting + personalised messages to
+          contacts is always a challenge for marketers. In this example, we will
+          look at how to retrieve data from Klaviyo. We then cleanse the data
+          and pass it back with the help of Google Maps. We then use the
+          information from Google Maps to create a personalised tailored message
+          to a contact.
+        </p>
+
+        <i>
+          <p>
+            Klaviyo APIs used in this example: Post a new customer, retrieve a
+            customer, update a customer, insert an event (to trigger a workflow)
+          </p>
+        </i>
+        <i>External APIs used in this example: Google Maps, OpenWeatherAPI</i>
       </div>
       <Row className='justify-content-md-center'>
         <Col sm='6'>
@@ -62,7 +82,13 @@ const UseCase1 = () => {
         </Col>
         <Col sm='6'>
           <Card className=' box-shadow '>
-            <div className='card-body'></div>
+            <div className='card-body'>
+              <p>
+                1. We post a new profile to Klaviyo. Note that the Address field
+                is in a single string- this makes it hard for marketers to
+                segment contacts, particularly based around geolocation.
+              </p>
+            </div>
           </Card>
         </Col>
       </Row>
@@ -103,7 +129,12 @@ const UseCase1 = () => {
         </Col>
         <Col sm='6'>
           <Card className=' box-shadow '>
-            <div className='card-body'>{/* <pre>{profile}</pre> */}</div>
+            <div className='card-body'>
+              2. In this step, we call out to Google API to search for the
+              address that was entered in the first step. We then call back to
+              Klaviyo to post the detailed location results of what was found
+              using Google Maps. Note: We assume that the address is valid.
+            </div>
           </Card>
         </Col>
       </Row>
@@ -125,7 +156,12 @@ const UseCase1 = () => {
         </Col>
         <Col sm='6'>
           <Card className=' box-shadow '>
-            <div className='card-body'>{/* <pre>{profile}</pre> */}</div>
+            <div className='card-body'>
+              3. Great! What else can we do with this information? In this
+              example, we use the Longitude and Lattitude attributed found by
+              Google to send a personal tailored message to the contact- an
+              update on the weather in their current location at time of send!
+            </div>
           </Card>
         </Col>
       </Row>
