@@ -34,6 +34,13 @@ const UseCase3 = ({ options }) => {
     }
   };
 
+  const changeEvents = async (e) => {
+    const { data } = await axios.get(
+      `http://localhost:3000/api/UseCase3/getProfileEvents?profileId=${profile.id}&metric=${e.value}`
+    );
+    setEvents(data);
+  };
+
   return (
     <div className='row justify-content-md-center'>
       <div className='col-6 '>
@@ -91,7 +98,7 @@ const UseCase3 = ({ options }) => {
               )}
             </Col>
             <Col sm='8'>
-              <Select options={options}></Select>
+              <Select options={options} onChange={changeEvents}></Select>
               <Card className='pt-3'>
                 <CardBody>
                   {events?.map((event) => {
@@ -99,9 +106,19 @@ const UseCase3 = ({ options }) => {
                       <Alert>
                         Event: {event.event_name}{' '}
                         <p>
-                          {event.datetime.subString(
-                            0,
-                            event.datetime.length - 8
+                          {event.datetime.slice(0, event.datetime.length - 9)}{' '}
+                          {event.event_properties.Subject}
+                          {event.event_name === 'Received Email' && (
+                            <a
+                              target='_blank'
+                              href={`https://www.klaviyo.com/message/flow-message/web-view/${event.event_properties.$event_id.slice(
+                                7,
+                                46
+                              )}`}
+                              rel='noopener noreferrer'
+                            >
+                              <span> 🚀</span>
+                            </a>
                           )}
                         </p>
                       </Alert>
