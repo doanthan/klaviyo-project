@@ -18,7 +18,6 @@ const UseCase1 = () => {
       `http://localhost:3000/api/identifyProfile`,
       formData
     );
-    alert(data);
   };
 
   const getProfile = async (formData) => {
