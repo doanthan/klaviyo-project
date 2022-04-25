@@ -12,13 +12,14 @@ const UseCase1 = () => {
 
   const [profile, setProfile] = useState();
 
+  // DT: 1st step- add a person to Klaviyo with a full address in one field
   const addPerson = async (formData) => {
     const { data } = await axios.post(
       `http://localhost:3000/api/UseCase1/identifyProfile`,
       formData
     );
   };
-
+  // DT: 2nd step- load a profile, using their email address as the identifier
   const getProfile = async (formData) => {
     const { data } = await axios.post(
       `http://localhost:3000/api/UseCase1/getProfile`,
@@ -26,14 +27,14 @@ const UseCase1 = () => {
     );
     setProfile(data);
   };
-
+  // DT: 3rd step- call out to Google Maps, and used the retrieved information to update the correct fields within Klaviyo.
   const updateAddress = async () => {
     const { data } = await axios.post(
       `http://localhost:3000/api/UseCase1/updateAddress`,
       { email: profile.$email, address: profile.$address1 }
     );
   };
-
+  // DT: 4th step- using the new long and lat coordinates, call out to Open Maps Weather API and personalise an email with the current weather condtions to a contact in Klaviyo
   const sendEmail = async () => {
     const { data } = await axios.post(
       `http://localhost:3000/api/UseCase1/sendEmail`,

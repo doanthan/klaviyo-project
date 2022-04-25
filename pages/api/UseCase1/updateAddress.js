@@ -1,6 +1,7 @@
 import axios from 'axios';
 import NodeGeocoder from 'node-geocoder';
 
+// DT: Update a profile with an correct address fields inside Klaviyo
 export default async function identifyProfile(req, res) {
   //get the PERSON_ID by using an email address
   const options = {
@@ -10,7 +11,6 @@ export default async function identifyProfile(req, res) {
   };
   const geocoder = NodeGeocoder(options);
   const loc = await geocoder.geocode(req.body.address);
-  console.log(loc);
   const url = 'https://a.klaviyo.com/api/identify';
   const body = {
     token: process.env.NEXT_PUBLIC_KLAVIYO_PUBLIC_KEY,

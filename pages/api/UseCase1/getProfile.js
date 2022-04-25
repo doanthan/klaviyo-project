@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// DT: Input email to receive an ID. Use the ID to receive the profile from Klaviyo
 export default async function identifyProfile(req, res) {
   //get the PERSON_ID by using an email address
   const { data } = await axios.get(

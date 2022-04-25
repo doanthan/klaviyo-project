@@ -1,5 +1,6 @@
 import axios from 'axios';
 
+// DT: call out to Open Weather API using lat lon from the user's profile, then use the weather details to populate an event inside Klaviyo
 export default async function sendEmail(req, res) {
   const email = req.body.email;
   console.log(req.body);

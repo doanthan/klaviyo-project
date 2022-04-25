@@ -20,6 +20,7 @@ const UseCase3 = ({ options }) => {
   const [profile, setProfile] = useState();
   const [events, setEvents] = useState();
 
+  // DT: Submit to retrieve customer profile and to set the initial events
   const onSubmit = async (formData) => {
     const { data } = await axios.post(
       `http://localhost:3000/api/UseCase3/getProfile`,
@@ -34,6 +35,7 @@ const UseCase3 = ({ options }) => {
     }
   };
 
+  // DT: OnChange event when selecting a new option in the Select Events
   const changeEvents = async (e) => {
     const { data } = await axios.get(
       `http://localhost:3000/api/UseCase3/getProfileEvents?profileId=${profile.id}&metric=${e.value}`
@@ -144,6 +146,9 @@ const UseCase3 = ({ options }) => {
   );
 };
 
+// DT: Code to run Server Side before page gets populated
+// We retrieve all the metrics from Klaviyo and populate the Select on the page.
+// We all push an 'All Metrics' option on top of the options
 export const getServerSideProps = async () => {
   const url = `https://a.klaviyo.com/api/v1/metrics?api_key=${process.env.KLAVIYO_SECRET_KEY}`;
   const { data } = await axios.get(url);
@@ -152,7 +157,6 @@ export const getServerSideProps = async () => {
   data.data.map((metric) => {
     options.push({ value: metric.id, label: metric.name });
   });
-  console.log(options);
   return {
     props: { options },
   };

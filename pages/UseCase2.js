@@ -13,6 +13,7 @@ const UseCase2 = ({ initialData }) => {
   const [grid, setGrid] = useState(blankSheet);
   const [results, setResults] = useState([]);
 
+  // DT: Submit a list of user details to be uploaded into Klaviyo and added to a certain list
   const onSubmit = async (formData) => {
     formData.emailList = grid;
     const { data } = await axios.post(
@@ -113,6 +114,7 @@ const UseCase2 = ({ initialData }) => {
 
 export default UseCase2;
 
+// DT: Pre populate the page with the list of lists to populate the Select menu
 export const getServerSideProps = async () => {
   const url = `https://a.klaviyo.com/api/v2/lists?api_key=${process.env.KLAVIYO_SECRET_KEY}`;
   const { data } = await axios.get(url);

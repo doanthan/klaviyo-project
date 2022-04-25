@@ -18,11 +18,11 @@ export default function Home() {
             />
             <div className='card-body'>
               <h5 className='card-title'>Use Case 1</h5>
-              <strong>Richard Hamming</strong>
+              <strong>Data Cleansing & Cool Personalisation</strong>
               <p className='card-text mt-20'>
-                The Art of Doing Science and Engineering is a reminder that a
-                childlike capacity for learning and creativity are accessible to
-                everyone.
+                Using Google Maps API and OpenWeatherAPI, we cleanse a profile's
+                address attributes and use the information to send hyper
+                personalised messages from Klaviyo.
               </p>
               <Link href='/UseCase1'>
                 <a>
@@ -41,11 +41,13 @@ export default function Home() {
             />
             <div className='card-body'>
               <h5 className='card-title'>Use Case 2</h5>
-              <strong>Jordan Mechner</strong>
+              <strong>Distributed Marketing</strong>
               <p className='card-text mt-20'>
-                In The Making of Prince of Persia, on the 30th anniversary of
-                the game’s release, Mechner looks back at the journals he kept
-                from 1985 to 1993..
+                In a distributed marketing model, multiple marketeers in
+                different regions run their own campaigns and add to their own
+                regional lists. This use case presents a portal where a
+                marketeer can add profiles to their own list without having to
+                enter the Klaviyo product.
               </p>
               <Link href='/UseCase2'>
                 <a>
@@ -64,11 +66,13 @@ export default function Home() {
             />
             <div className='card-body'>
               <h5 className='card-title'>Use Case 3</h5>
-              <strong>Nadia Eghbal</strong>
+              <strong>External Customer Support Page</strong>
               <p className='card-text mt-20'>
-                Nadia Eghbal takes an inside look at modern open source and
-                offers a model through which to understand the challenges faced
-                by online creators.
+                It could be useful for customer support agents to retrieve
+                events from Klaviyo in real time to help with support case
+                issues. They usually would not be given access to the Klaviyo
+                platform- this use case provides a page to access events
+                collected by Klaviyo, and information about the customer.
               </p>
               <Link href='/UseCase3'>
                 <a>
