@@ -56,8 +56,8 @@ const UseCase3 = ({ options }) => {
             profiles from Klaviyo and view recent actions.
           </p>
           <i>
-            Klaviyo API's used in this interation: Get Lists, Add Profiles to
-            List
+            Klaviyo API's used in this interaction: Get Metrics list, get
+            Profile, get Events, Get specific events
           </i>
           <Row>
             <Col sm='12'>

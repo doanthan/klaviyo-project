@@ -38,7 +38,7 @@ const UseCase2 = ({ initialData }) => {
             profiles and their details into Klaviyo
           </p>
           <i>
-            Klaviyo API's used in this interation: Get Lists, Add Profiles to
+            Klaviyo API's used in this interaction: Get Lists, Add Profiles to
             List
           </i>
           <Row className='justify-content-md-center'>
