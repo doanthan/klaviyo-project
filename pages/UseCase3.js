@@ -52,6 +52,14 @@ const UseCase3 = ({ options }) => {
           <hr className='mt-40' />
           <h6>Use Case 3</h6>
           <p>
+            <b>Issue: </b>
+            Ecommerce stores may have a customer support department who may find
+            it useful to track customers actions to help resolve customer
+            issues. This helps brands provide better customer support and better
+            customer experience.
+          </p>
+          <p>
+            <b>Solution: </b>
             Customer Service Agents may find it useful to track what user
             activity or actions have been taken by users to troubleshoot or help
             customers. We can create a page which allows customers to retrieve
@@ -91,11 +99,26 @@ const UseCase3 = ({ options }) => {
             <Col sm='4'>
               {profile && (
                 <>
-                  <p>Email: {profile.$email}</p>
-                  <p>Klaviyo ID: {profile.id}</p>
-                  <p>Address: {profile.$address1}</p>
-                  <p>Created: {profile.created}</p>
-                  <p>Updated: {profile.updated}</p>
+                  <img
+                    src='/images/anon.png'
+                    className='card-img-top'
+                    alt='...'
+                  />
+                  <p>
+                    <b>Email:</b> {profile.$email}
+                  </p>
+                  <p>
+                    <b>Klaviyo ID:</b> {profile.id}
+                  </p>
+                  <p>
+                    <b>Address:</b> {profile.$address1}
+                  </p>
+                  <p>
+                    <b>Created:</b> {profile.created}
+                  </p>
+                  <p>
+                    <b>Updated:</b> {profile.updated}
+                  </p>
                 </>
               )}
             </Col>

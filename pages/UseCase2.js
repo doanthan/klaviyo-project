@@ -33,11 +33,18 @@ const UseCase2 = ({ initialData }) => {
           <hr className='mt-40' />
           <h6>Use Case 2</h6>
           <p>
-            Customer has multiple local marketeers who wish to add profiles to
-            their local list, but don't need access to the Klaviyo platform.
-            Create an easy to use function for these marketeers to quickly add
-            profiles and their details into Klaviyo
+            <b>Issue: </b>
+            Brands maye have multiple local employees who need to add profiles
+            to their local list, but don't need to be granted access to the
+            Klaviyo platform.
           </p>
+          <p>
+            <b>Solution: </b>
+            We create a easy to use data sheet which allows employees to easily
+            enter data or to copy from Excel formatted information which is
+            appended to lists within Klaviyo.
+          </p>
+
           <i>
             Klaviyo API's used in this interaction: Get Lists, Add Profiles to
             List

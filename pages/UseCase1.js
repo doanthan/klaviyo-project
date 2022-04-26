@@ -54,12 +54,18 @@ const UseCase1 = () => {
         <hr className='mt-40' />
         <h5 className='text-secondary'>Use Case 1</h5>
         <p>
-          Cleaning up data and sending interesting + personalised messages to
-          contacts is always a challenge for marketers. In this example, we will
-          look at how to retrieve data from Klaviyo. We then cleanse the data
-          and pass it back with the help of Google Maps. We then use the
-          information from Google Maps to create a personalised tailored message
-          to a contact.
+          <b>Issue: </b>
+          Brands may have messy address data from years of data collection. It
+          is also hard to impress customers and show personalisation that gives
+          a great customer experience.
+        </p>
+        <p>
+          <b>Solution: </b>
+          We call out to Google Maps to correctly fill out address fields ins
+          Klaviyo. This helps with future location segmentation. We then use
+          this data to personalise an email with the contact's current weather
+          conditions and hopefully add value and delighting customers for a
+          great customer experience.
         </p>
 
         <i>
@@ -107,6 +113,7 @@ const UseCase1 = () => {
         <Col sm='6'>
           <Card className=' box-shadow '>
             <div className='card-body'>
+              <p>2. Retrieve the data:</p>
               <pre>{JSON.stringify(profile, null, '\t')}</pre>
             </div>
           </Card>
@@ -131,7 +138,7 @@ const UseCase1 = () => {
         <Col sm='6'>
           <Card className=' box-shadow '>
             <div className='card-body'>
-              2. In this step, we call out to Google API to search for the
+              3. In this step, we call out to Google API to search for the
               address that was entered in the first step. We then call back to
               Klaviyo to post the detailed location results of what was found
               using Google Maps. Note: We assume that the address is valid.
@@ -158,7 +165,7 @@ const UseCase1 = () => {
         <Col sm='6'>
           <Card className=' box-shadow '>
             <div className='card-body'>
-              3. Great! What else can we do with this information? In this
+              4. Great! What else can we do with this information? In this
               example, we use the Longitude and Lattitude attributed found by
               Google to send a personal tailored message to the contact- an
               update on the weather in their current location at time of send!
