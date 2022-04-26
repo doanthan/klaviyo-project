@@ -53,13 +53,13 @@ const UseCase1 = () => {
         <h1>Doan's Klaviyo Demo</h1>
         <hr className='mt-40' />
         <h5 className='text-secondary'>Use Case 1</h5>
-        <p>
+        <p className='px-5'>
           <b>Issue: </b>
           Brands may have messy address data from years of data collection. It
           is also hard to impress customers and show personalisation that gives
           a great customer experience.
         </p>
-        <p>
+        <p className='px-5'>
           <b>Solution: </b>
           We call out to Google Maps to correctly fill out address fields ins
           Klaviyo. This helps with future location segmentation. We then use
@@ -122,7 +122,7 @@ const UseCase1 = () => {
       <Row className='justify-content-md-center pt-3'>
         <Col sm='6'>
           <Card className=' box-shadow '>
-            <div className='card-body'>
+            <div className='card-body '>
               <div className='pt-2'>
                 <Button
                   onClick={updateAddress}
