@@ -18,7 +18,6 @@ export default async function updateList(req, res) {
     }
   });
   const { data } = await axios.post(url, { profiles: sendList });
-  console.log(data);
 
   return res.status(200).send(data);
 }
