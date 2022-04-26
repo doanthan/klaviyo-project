@@ -5,11 +5,16 @@ This Interview Assignment was written using NextJS. More information on NextJS c
 1. Download or clone the repository from Github.
 
 2. Create an .env file in the base directory of the project. The following variables should be added:
-   NEXT_PUBLIC_KLAVIYO_PUBLIC_KEY=
-   KLAVIYO_SECRET_KEY=
-   GEOCODER_PROVIDER=
-   GEOCODER_KEY=
-   OPEN_WEATHER_API_KEY=
+   NEXT_PUBLIC_KLAVIYO_PUBLIC_KEY
+   
+   KLAVIYO_SECRET_KEY
+   
+   GEOCODER_PROVIDER
+   
+   GEOCODER_KEY
+   
+   OPEN_WEATHER_API_KEY
+   
 
 3. Run in terminal: npm install
 
